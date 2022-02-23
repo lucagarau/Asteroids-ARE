@@ -11,6 +11,9 @@
 //procedura per il riavvio di Arduino
 void (* Riavvia)(void)=0;
 
+void left();
+void right();
+
 //dichiarazione oggetto matrice led
 LedControl lc = LedControl(12, 11, 10, 1);
 
@@ -102,8 +105,8 @@ void startSong(){
 }
 
 void setup() {
-  //inizializzazione punteggio e ricevittore ir
-   Serial.begin(9600);
+  //inizializzazione punteggio e sensore ir
+  // Serial.begin(9600);
   irrecv.enableIRIn();
 
   gameOver = false;
@@ -150,20 +153,7 @@ void command()
       Riavvia();
       break;
   }
-  /*
-  //viene premuto il tasto 4
-  if (results.value == 0xFF10EF)
-  {
-    left();
-   }
-    
-  else if (results.value == 0xFF5AA5)
-  {
-    right();
-  }
-   else if(results.value == 0xFF02FD)
-  Riavvia();
-}*/
+}
 
 //procedura che gestisce il pulsante sinistro
 void left()
